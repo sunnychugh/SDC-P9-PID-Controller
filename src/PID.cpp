@@ -1,4 +1,6 @@
 #include "PID.h"
+#include <iostream>
+#include <math.h>
 
 using namespace std;
 
@@ -14,11 +16,12 @@ PID::PID()
 
 PID::~PID() {}
 
-void PID::Init(double Kp, double Ki, double Kd)
+void PID::Init(double _Kp, double _Ki, double _Kd)
 {
-    Kp = Kp;
-    Ki = Ki;
-    Kd = Kd;
+    Kp = _Kp;
+    Ki = _Ki;
+    Kd = _Kd;
+    cout << -Kp << "\t" << -Kd << "\t" << -Ki << endl;
 }
 
 double PID::UpdateError(double cte)
@@ -27,6 +30,9 @@ double PID::UpdateError(double cte)
     int_cte += cte;
     prev_cte = cte;
     double steer = -Kp * cte - Kd * diff_cte - Ki * int_cte;
+    //cout << -Kp << "\t" << -Kd << "\t" << -Ki << endl;
+    //cout << -Kp * cte << "\t" << -Kd * diff_cte << "\t" << -Ki * int_cte << endl;
+
     return steer;
 }
 
