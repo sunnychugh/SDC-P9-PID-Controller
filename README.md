@@ -1,6 +1,16 @@
 # CarND-Controls-PID
 Self-Driving Car Engineer Nanodegree Program
 
+
+
+The PID gains were tuned manually. After several rounds of trial and error, the gains for which I settled for are: Kp=0.15, Ki=0.004, Kd=3.0. The speed is controlled by a simple proportional gain controller, while deviations from centre of track are controlled by Derivative and Integral controllers.
+
+Also if Cross Track Error(cte) is below certain value then throttle speed of vehicle is increased gradually else if cte is larger than certaon value, the speed of vehicle will be decreased coded in lines 89-93 in main.cpp
+
+youtube video link-- https://youtu.be/VX4ivpey5XU
+
+Video is still not very smooth. One reason is latency between actuations commands on top of the connection, which will be improved by using MPC model. Another reason is slow processing speed of my home PC.
+
 ---
 
 ## Dependencies
